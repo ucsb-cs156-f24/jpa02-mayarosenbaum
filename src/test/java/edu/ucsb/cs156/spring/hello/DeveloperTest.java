@@ -25,15 +25,28 @@ public class DeveloperTest {
         assertEquals("Maya", Developer.getName());
     }
 
+    @Test
     public void getGithubId_returns_correct_githubId() {
         assertEquals("mayarosenbaum", Developer.getGithubId());
     }
 
-    /*
-    public void getTeam_returns_correct_team() {
-        assertEquals("Maya", Developer.team());
+    @Test
+    public void getTeam_returns_team_with_correct_name() {
+        Team  t = Developer.getTeam();
+        assertEquals("f24-12", t.getName());
     }
-    */
+
+    @Test
+    public void getTeam_returns_team_with_correct_members() {
+        Team  t = Developer.getTeam();
+        assertTrue(t.getMembers().contains("Abby"),"Team should contain Abby");
+        assertTrue(t.getMembers().contains("Javin"),"Team should contain Javin");
+        assertTrue(t.getMembers().contains("Sarvesh"),"Team should contain Sarvesh");
+        assertTrue(t.getMembers().contains("Yixuan"),"Team should contain Yixuan");
+        assertTrue(t.getMembers().contains("Yungong"),"Team should contain Yungong");
+        assertTrue(t.getMembers().contains("Maya"),"Team should contain Maya");
+    }
+
     // 100% mutation coverage (all mutants timed out or killed)
 
 }
